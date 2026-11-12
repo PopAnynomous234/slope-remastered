@@ -12,8 +12,8 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - project: "chat-283f4"
-            site: "nebulaprox"        
+          - project: "chat-67-67"
+            site: "slope3"        
 
     steps:
       - uses: actions/checkout@v4

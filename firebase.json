@@ -1,0 +1,55 @@
+{
+  "hosting": {
+    "target": "universal-site",
+    "public": ".",
+
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+
+    "headers": [
+      {
+        "source": "**",
+        "headers": [
+  { "key": "Cross-Origin-Resource-Policy", "value": "cross-origin" },
+  { "key": "Content-Security-Policy", "value": "frame-ancestors *;" }
+]
+      },
+      {
+        "source": "/sw.js",
+        "headers": [
+          {
+            "key": "Content-Type",
+            "value": "application/javascript"
+          },
+          {
+            "key": "Service-Worker-Allowed",
+            "value": "/"
+          }
+        ]
+      },
+      {
+        "source": "**/*.wasm",
+        "headers": [
+          {
+            "key": "Content-Type",
+            "value": "application/wasm"
+          }
+        ]
+      }
+    ],
+
+    "rewrites": [
+      {
+        "source": "/scramjet/**",
+        "destination": "/index.html"
+      },
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
